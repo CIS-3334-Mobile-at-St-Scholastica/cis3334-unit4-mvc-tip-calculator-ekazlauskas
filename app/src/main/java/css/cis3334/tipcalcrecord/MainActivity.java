@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     CheckBox cbService;
     RadioButton rb1, rb2, rb3;
     CalculatorInterface tipCalc;
+    DecimalFormat currency = new DecimalFormat("$###,###.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     @Override
     public void updateView(Double totalTip, Double tipPerPerson) {
-        tvTotalTip.setText( "Total Tip: " + totalTip.toString());
-        tvTipPerPerson.setText( "Tip per Person: " + tipPerPerson.toString());
+        tvTotalTip.setText( "Total Tip: " + currency.format(totalTip));
+        tvTipPerPerson.setText( "Tip per Person: " + currency.format(tipPerPerson));
     }
 }
