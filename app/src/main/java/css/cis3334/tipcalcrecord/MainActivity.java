@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity implements updateViewInterface {
     // Declare needed varaiable for widgets
     EditText etBill;
@@ -35,7 +37,16 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     public void onClickButtonCalc(View view) {
         //This is a comment
         Double bill = Double.parseDouble( etBill.getText().toString() );
+        Double totalTip;
         int numPeople = 1;
+        if(cbService.isChecked()) {
+            totalTip = bill * .02;
+        }else{
+            totalTip = bill * .01;
+        }
+        if (rb1.isChecked()) {
+            numPeople = 1;
+        }
         if (rb2.isChecked()) {
             numPeople = 2;
         } else if (rb3.isChecked()) {
